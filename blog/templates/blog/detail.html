@@ -6,6 +6,6 @@
             <img class="img-fluid" src="{{ blog.image.url }}" >
             <br />
             <br />
-            <p>{{ blog.body }}</p>
+            <p>{{ blog.body | safe}}</p>
 
 {% endblock %}

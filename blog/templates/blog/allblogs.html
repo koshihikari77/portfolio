@@ -7,13 +7,17 @@
                 <img class="card-img-top" src="{{ blog.image.url }}" alt="Card image cap">
                 <div class="card-body">
                     <a href="{% url 'detail' blog.id %}"><h2 class="card-title">{{ blog.title }}</h2></a>
-                    <p class="card-text">{{ blog.summary }}</p>
+
 
                     <br />
                 </div>
                 <div class="card-footer text-muted">
-                    {{ blog.created_at }}
-                    {{ blog.category }}
+                    <span class="badge badge-pill badge-primary">{{ blog.created_at }}</span>
+                    <span class="badge badge-pill badge-primary">{{ blog.category }}</span>
+                    {% for t in blog.tag.all %}
+                    <span class="badge badge-pill badge-primary">{{ t.title }}</span>
+                    {% endfor %}
+
                 </div>
 
              </div>
