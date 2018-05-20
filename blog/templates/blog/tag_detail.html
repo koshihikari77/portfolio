@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <h6>"記事一覧":{{ tag }}</h6>
+
+            {% for p in query_set %}
+
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ p.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <a href="{% url 'detail' p.id %}"><h2 class="card-title">{{ p.title }}</h2></a>
+                    <p class="card-text">{{ p.summary }}</p>
+
+                    <br />
+                </div>
+                <div class="card-footer text-muted">
+                    {{ p.pub_date_pretty }}
+                </div>
+             </div>
+
+            {% endfor %}
+
+{% endblock %}
